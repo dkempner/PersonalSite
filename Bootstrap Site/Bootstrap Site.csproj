@@ -18,6 +18,12 @@
   <ItemGroup>
     <Content Include="css\bootstrap.css" />
     <Content Include="css\bootstrap.min.css" />
+    <Content Include="css\main.css">
+      <DependentUpon>main.less</DependentUpon>
+    </Content>
+    <Content Include="css\main.min.css">
+      <DependentUpon>main.less</DependentUpon>
+    </Content>
     <Content Include="default.htm" />
     <Content Include="js\bootstrap.js" />
     <Content Include="js\bootstrap.min.js" />
@@ -35,6 +41,7 @@
     <Content Include="js\main.js.map">
       <DependentUpon>main.ts</DependentUpon>
     </Content>
+    <Content Include="css\main.less" />
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
     </None>
