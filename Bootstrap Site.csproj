@@ -16,18 +16,16 @@
     <IISExpressUseClassicPipelineMode />
   </PropertyGroup>
   <ItemGroup>
-    <Content Include="css\bootstrap.css" />
-    <Content Include="css\bootstrap.min.css" />
+    <Content Include="fonts\glyphiconshalflings-regular.svg" />
+    <Content Include="resume.html" />
+    <Content Include="contact.html" />
     <Content Include="css\main.css">
       <DependentUpon>main.less</DependentUpon>
     </Content>
     <Content Include="css\main.min.css">
       <DependentUpon>main.less</DependentUpon>
     </Content>
-    <Content Include="default.htm" />
-    <Content Include="js\bootstrap.js" />
-    <Content Include="js\bootstrap.min.js" />
-    <Content Include="js\jquery-2.0.3.min.js" />
+    <Content Include="index.html" />
     <Content Include="js\main.js">
       <DependentUpon>main.ts</DependentUpon>
     </Content>
@@ -37,11 +35,17 @@
     <TypeScriptCompile Include="js\main.ts" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="features.html" />
     <Content Include="web.config" />
     <Content Include="js\main.js.map">
       <DependentUpon>main.ts</DependentUpon>
     </Content>
     <Content Include="css\main.less" />
+    <Content Include="fonts\glyphiconshalflings-regular.eot" />
+    <Content Include="fonts\glyphiconshalflings-regular.otf" />
+    <Content Include="fonts\glyphiconshalflings-regular.ttf" />
+    <Content Include="fonts\glyphiconshalflings-regular.woff" />
+    <Content Include="css\glyphicons.less" />
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
     </None>
