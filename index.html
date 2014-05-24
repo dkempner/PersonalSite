@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daniel Kempner Design</title>
+    <!--Scripts/styles to load first -->
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
+
+    <style>
+    body {
+        font-family:'Lane Regular';
+    }
+    #background {
+        position: absolute;
+        top:0;
+        left:0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        opacity: 0.4
+    }
+    .container-fluid {
+        position: relative;
+        top:0;
+        left:0;
+        z-index: 3
+    }
+    .jumbotron {
+        border-radius: 10px;
+    }
+    .main-content {
+        opacity: 0.8;
+    }
+    .welcome-row {
+        margin-top: 40px;
+    }
+    .work-row {
+        font-family:'Lane Posh';
+    }
+    a {
+        font-weight: 900;
+    }
+    </style>
+    <!--End -->
+</head>
+
+<body>
+    <!--Wraps entire content, keeps page centered horizontally-->
+    <img id="background">
+    <div class="container-fluid">
+        <div class="main-content">
+            <div class="row welcome-row">
+                <div class="col-md-1"></div>
+                <div class="col-md-4">
+                    <div class="jumbotron">
+                        <h1 class="text-primary">Welcome!</h1>
+                        <p class="lead">The personal website of Daniel Kempner</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row work-row">
+                <div class="col-md-8"></div>
+                <div class="col-md-3">
+                    <div class="jumbotron">
+                        <p>Check out my
+                            <span><a href="features.html">work</a>
+                            </span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="row contact-row">
+                <div class="col-md-4"></div>
+                <div class="col-md-3">
+                    <div class="jumbotron">
+                        <p><a href="contact.html">Connect with me</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<!--Scripts to Load after page load-->
+<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+<script>
+function getRandomInt(min, max, current) {
+    var possible = Math.floor(Math.random() * (max - min + 1)) + min;
+    if (possible !== current) {
+        return possible;
+    }
+    return getRandomInt(min, max, current);
+}
+
+
+$(document).ready(function() {
+    var imageArray = ['images/Encinitas.jpg', 'images/guitar.jpg', 'images/javascript.jpg', 'images/space.jpg'];
+    window.randomNumber = getRandomInt(0, imageArray.length);
+    var background = $('#background');
+    background.attr('src', imageArray[window.randomNumber]);
+
+    function changeImage() {
+        window.randomNumber = getRandomInt(0, imageArray.length, window.randomNumber)
+        background.fadeOut(3500, function() {
+            background.attr('src', imageArray[window.randomNumber])
+        });
+
+        background.fadeIn(3500);
+
+    };
+
+    setInterval(function() {
+        changeImage()
+    }, 5000);
+});
+</script>l
+<!--End-->
+
+</html>

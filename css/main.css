@@ -1,0 +1,10 @@
+@font-face {
+    font-family:'Lane Regular';
+    src: url("../fonts/LANENAR_-webfont.woff") format('woff'),
+    url("../fonts/LANENAR_-webfont.ttf") format('truetype');
+}
+@font-face {
+    font-family:'Lane Posh';
+    src: url("../fonts/LANEPOSH-webfont.woff") format('woff'),
+    url("../fonts/LANEPOSH-webfont.ttf") format('truetype');
+}
