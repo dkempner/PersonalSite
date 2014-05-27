@@ -65,7 +65,7 @@
                     <div class="col-md-8"></div>
                     <div class="col-md-3">
                         <div class="jumbotron">
-                            <p>Check out my <a href="http://www.danielkempner.com/blog">blog</a>
+                            <p>check out my <a href="http://www.danielkempner.com/blog">blog</a>
                             </p>
                         </div>
                     </div>
@@ -130,17 +130,15 @@
 
                 function changeImage() {
                     window.randomNumber = getRandomInt(0, imageArray.length, window.randomNumber);
-                    background.fadeOut(2000, function() {
+                    background.fadeOut(2000, function () {
+                        if (background.attr('src') === imageArray[window.randomNumber]) {
+                            window.randomNumber = getRandomInt(0, imageArray.length);
+                        }
                         background.attr('src', imageArray[window.randomNumber]);
+                        background.fadeIn(2000, function() { changeImage(); });
                     });
-
-                    background.fadeIn(500);
-
                 };
-
-                setInterval(function() {
-                    changeImage();
-                }, 5000);
+				changeImage();
             });
         </script>
     </body>
