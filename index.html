@@ -114,7 +114,7 @@
         <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
         <script>
             function getRandomInt(min, max, current) {
-                var possible = Math.floor(Math.random() * (max - min + 1)) + min;
+                var possible = Math.floor(Math.random() * (max - min)) + min;
                 if (possible !== current) {
                     return possible;
                 }
@@ -124,21 +124,35 @@
 
             $(document).ready(function() {
                 var imageArray = ['images/Encinitas.jpg', 'images/guitar.jpg', 'images/javascript.jpg', 'images/space.jpg'];
-                window.randomNumber = getRandomInt(0, imageArray.length);
+                var queue = [];
+                var actionQueue = [];
+                var lastPick = imageArray.length + 1;
+                for (var i = 0; i < 1000; i++) {
+                    var newPick = getRandomInt(0, imageArray.length, lastPick);
+                    queue.push(newPick);
+                    lastPick = newPick;
+                }
+
                 var background = $('#background');
-                background.attr('src', imageArray[window.randomNumber]);
+                background.attr('src', imageArray[queue.pop()]);
 
                 function changeImage() {
-                    window.randomNumber = getRandomInt(0, imageArray.length, window.randomNumber);
-                    background.fadeOut(2000, function () {
-                        if (background.attr('src') === imageArray[window.randomNumber]) {
-                            window.randomNumber = getRandomInt(0, imageArray.length);
-                        }
-                        background.attr('src', imageArray[window.randomNumber]);
-                        background.fadeIn(2000, function() { changeImage(); });
+                    background.fadeOut(2000, function() {
+                        background.attr('src', imageArray[queue.pop()]);
+                        background.fadeIn(2000, function() { actionQueue.push(changeImage); });
                     });
                 };
-				changeImage();
+
+                setInterval(function() {
+                    if (actionQueue.length === 1) {
+                        var func = actionQueue.pop();
+                        func();
+                    }
+
+                }, 1000);
+
+                actionQueue.push(changeImage);
+
             });
         </script>
     </body>
